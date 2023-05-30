@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-// create the schema required for building
+
 const urlSchema = new mongoose.Schema({
     alias:{
         type: String,
@@ -19,7 +19,7 @@ const urlSchema = new mongoose.Schema({
         required: true
     }
 })
-// create a model for the above schema
+
 const Saveurl = mongoose.model('Saveurl',urlSchema);
-// export the model
+
 export default Saveurl
