@@ -18,7 +18,7 @@ export const Addurl = async(req,res)=>{
         console.log(alias.length);
         
         if (alias.length > 0) {
-          shortUrl = `https://urlshortner-p3hw.onrender.com${req.body.alias}`;
+          shortUrl = `https://urlshortner-p3hw.onrender.com/${req.body.alias}`;
           dataurl = {
             url: req.body.inputUrl,
             key: req.body.alias,
@@ -28,7 +28,7 @@ export const Addurl = async(req,res)=>{
         } else {
           const uuid = uuidv4();
           let key = uuid.slice(0, 8);
-          shortUrl = `https://urlshortner-p3hw.onrender.com${key}`;
+          shortUrl = `https://urlshortner-p3hw.onrender.com/${key}`;
           dataurl = {
             url: req.body.inputUrl,
             key: key,
