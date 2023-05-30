@@ -19,7 +19,7 @@ export const Addurl = async(req,res)=>{
         console.log(alias.length);
         
         if (alias.length > 0) {
-          shortUrl = `https://hashurlshortener.onrender.com/${req.body.alias}`;
+          shortUrl = `https://urlshortner-p3hw.onrender.com/${req.body.alias}`;
           dataurl = {
             url: req.body.inputUrl,
             key: req.body.alias,
@@ -29,7 +29,7 @@ export const Addurl = async(req,res)=>{
         } else {
           const uuid = uuidv4();
           let key = uuid.slice(0, 8);
-          shortUrl = `https://hashurlshortener.onrender.com/${key}`;
+          shortUrl = `https://urlshortner-p3hw.onrender.com/${key}`;
           dataurl = {
             url: req.body.inputUrl,
             key: key,
@@ -59,24 +59,3 @@ export const getUrl = async (req, res) => {
   }
 };
 
-// app.post("/add", async (req, res) => {
-//     const url = req.body.url;
-//     try {
-//       const existingData = await UrlModel.findOne({ longUrl: url }).exec();
-//       if (existingData) {
-//         res.send({ Shortened: `https://hashshortenurl.onrender.com/${existingData.shortUrl}` });
-//       } else {
-//         const hash = crypto.createHash("sha256").update(url).digest("hex");
-//         const shortUrl = hash.slice(0, 6);
-//         const data = {
-//           shortUrl,
-//           longUrl: url,
-//         };
-//         const createdData = await UrlModel.create(data);
-//         res.send({ Shortened: `https://hashshortenurl.onrender.com/${createdData.shortUrl}` });
-//       }
-//     } catch (err) {
-//       console.error(err);
-//       res.status(500).send("Internal server error");
-//     }
-//   });
